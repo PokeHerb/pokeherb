@@ -32,21 +32,21 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://keycloak.code-factory.co.kr/realms/codefactory
+          issuer-uri: http://localhost:3300/realms/pokeherb
       client:
         registration:
           keycloak:
             client-id: ${KEYCLOAK_CLIENT_ID}
             client-secret: ${KEYCLOAK_CLIENT_SECRET}
             authorization-grant-type: authorization_code
-            redirect-uri: "http://localhost:3000/v1/user/authorization/code"
+            redirect-uri: "http://localhost:3300/v1/user/authorization/code"
             scope:
               - openid
               - profile
               - email
         provider:
           keycloak:
-            issuer-uri: https://keycloak.code-factory.co.kr/realms/codefactory
+            issuer-uri: http://localhost:3300/realms/pokeherb
 
 feign:
   client:
