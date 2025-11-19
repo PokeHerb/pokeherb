@@ -1,6 +1,6 @@
 keycloak:
-  server-url: https://keycloak.code-factory.co.kr
-  realm: codefactory
+  server-url: https://localhost:3300
+  realm: pokeherb
   client-id: ${KEYCLOAK_CLIENT_ID}
   client-secret: ${KEYCLOAK_CLIENT_SECRET}
   admin-username: ${KEYCLOAK_ADMIN_USERNAME}
