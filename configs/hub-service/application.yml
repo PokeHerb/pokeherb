@@ -22,9 +22,3 @@ spring:
 api:
   kakao:
     secret: ${KAKAO_SECRET}
-
-rabbit:
-  hub:
-    exchange: pokeherb
-    queue: order
-    routing-key: 'hub.#'

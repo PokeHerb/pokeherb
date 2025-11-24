@@ -110,3 +110,9 @@ resilience4j:
         limitForPeriod: 50  # 주기당 최대 50개 요청 허용
         limitRefreshPeriod: 1s  # 제한이 1초마다 초기화됨
         timeoutDuration: 0ms  # 허가 대기 시간 (0ms는 대기 없이 즉시 거부)
+
+rabbit:
+  hub:
+    exchange: pokeherb
+    queue: hub
+    routing-key: 'hub.#'
