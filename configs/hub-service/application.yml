@@ -24,7 +24,7 @@ api:
     secret: ${KAKAO_SECRET}
 
 rabbit:
-  product:
+  hub:
     exchange: pokeherb
     queue: order
     routing-key: 'hub.#'
