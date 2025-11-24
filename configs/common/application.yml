@@ -115,4 +115,35 @@ rabbit:
   hub:
     exchange: pokeherb
     queue: hub
-    routing-key: 'hub.#'
+    routing-key:
+      - 'hub.#'
+  order:
+    exchange: pokeherb
+    queue: order
+    routing-key:
+      - 'order.#'
+  product:
+    exchange: pokeherb
+    queue: product
+    routing-key:
+      - 'product.#'
+  vendor:
+    exchange: pokeherb
+    queue: vendor
+    routing-key:
+      - 'vendor.#'
+  user:
+    exchange: pokeherb
+    queue: user
+    routing-key:
+      - 'user.#'
+  driver:
+    exchange: pokeherb
+    queue: driver
+    routing-key:
+      - 'driver.#'
+  slack:
+    exchange: pokeherb
+    queue: slack
+    routing-key:
+      - 'slack.#'
