@@ -169,3 +169,8 @@ rabbit:
     queue: slack
     routing-key:
       - 'slack.#'
+  delivery:
+    exchange: pokeherb
+    queue: delivery
+    routing-key:
+      - 'delivery.#'
