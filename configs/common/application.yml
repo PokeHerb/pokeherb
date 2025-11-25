@@ -111,6 +111,27 @@ resilience4j:
         limitRefreshPeriod: 1s  # 제한이 1초마다 초기화됨
         timeoutDuration: 0ms  # 허가 대기 시간 (0ms는 대기 없이 즉시 거부)
 
+
+# OPEN DOC API 설정
+springdoc:
+  version: '1.0.0'
+  api-docs:
+    path: /v3/api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  swagger-ui:
+    operations-sorter: alpha
+    tags-sorter: alpha
+    path: /api-docs.html
+    disable-swagger-default-url: true
+    doc-expansion: full
+  paths-to-match:
+    - /**
+
+openapi:
+  service:
+    url: http://eureka.pokeherb.xyz:3100
+
 # rabbitmq 설정
 rabbit:
   hub:
