@@ -32,21 +32,21 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://keycloak.code-factory.co.kr/realms/codefactory
+          issuer-uri: http://localhost:3300/realms/pokeherb
       client:
         registration:
           keycloak:
             client-id: ${KEYCLOAK_CLIENT_ID}
             client-secret: ${KEYCLOAK_CLIENT_SECRET}
             authorization-grant-type: authorization_code
-            redirect-uri: "http://localhost:3000/v1/user/authorization/code"
+            redirect-uri: "http://localhost:3300/v1/user/authorization/code"
             scope:
               - openid
               - profile
               - email
         provider:
           keycloak:
-            issuer-uri: https://keycloak.code-factory.co.kr/realms/codefactory
+            issuer-uri: http://localhost:3300/realms/pokeherb
 
 feign:
   client:
@@ -78,7 +78,7 @@ management:
       endpoint: "http://35.216.57.57:9411/api/v2/spans" # Zipkin 수집 서버의 엔드포인트 URL을 입력합니다.
   tracing:
     sampling:
-      probability: 1.0
+      probability: 0.1
 
 logging:
   level:
@@ -110,3 +110,41 @@ resilience4j:
         limitForPeriod: 50  # 주기당 최대 50개 요청 허용
         limitRefreshPeriod: 1s  # 제한이 1초마다 초기화됨
         timeoutDuration: 0ms  # 허가 대기 시간 (0ms는 대기 없이 즉시 거부)
+
+# rabbitmq 설정
+rabbit:
+  hub:
+    exchange: pokeherb
+    queue: hub
+    routing-key:
+      - 'hub.#'
+  order:
+    exchange: pokeherb
+    queue: order
+    routing-key:
+      - 'order.#'
+  product:
+    exchange: pokeherb
+    queue: product
+    routing-key:
+      - 'product.#'
+  vendor:
+    exchange: pokeherb
+    queue: vendor
+    routing-key:
+      - 'vendor.#'
+  user:
+    exchange: pokeherb
+    queue: user
+    routing-key:
+      - 'user.#'
+  driver:
+    exchange: pokeherb
+    queue: driver
+    routing-key:
+      - 'driver.#'
+  slack:
+    exchange: pokeherb
+    queue: slack
+    routing-key:
+      - 'slack.#'
