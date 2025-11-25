@@ -130,7 +130,7 @@ springdoc:
 
 openapi:
   service:
-    url: http://eureka.pokeherb.xyz:3100
+    url: http://eureka.pokeherb.xyz:3000
 
 # rabbitmq 설정
 rabbit:
