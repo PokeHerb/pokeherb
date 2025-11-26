@@ -34,7 +34,12 @@ spring:
             - Path=/v1/product/**
           filters:
             - 'RewritePath=/v1/product/(?<path>.*), /\${path}'
-
+        - id: dirver-service
+          uri: lb://driver-service
+          predicates:
+            - Path=/v1/driver/**
+          filters:
+            - 'RewritePath=/v1/driver/(?<path>.*), /\${path}'
 springdoc:
   enable-native-support: true
   api-docs:
@@ -55,3 +60,4 @@ springdoc:
         name: VENDOR API
       - url: /product-service/v3/api-docs
         name: PRODUCT API
+
