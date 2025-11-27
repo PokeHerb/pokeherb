@@ -145,6 +145,8 @@ rabbit:
   product:
     exchange: pokeherb
     queue: product
+    routing-key-decrease: product.decrease.stock
+    routing-key-increase: product.increase.stock
     routing-key: 'product.#'
   vendor:
     exchange: pokeherb
